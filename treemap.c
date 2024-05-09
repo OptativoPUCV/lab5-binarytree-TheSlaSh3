@@ -176,7 +176,7 @@ Pair * firstTreeMap(TreeMap * tree) {
     tree->current = node;
     return node->pair;
     }
-}
+
 
 Pair * nextTreeMap(TreeMap * tree) {
     return NULL;
