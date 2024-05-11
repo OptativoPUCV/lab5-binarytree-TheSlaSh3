@@ -123,10 +123,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
     // Caso 3: Nodo con dos hijos
     else {
-        TreeNode* minimum = minimum(node->right);
-        node->key = minimum->key;
-        node->value = minimum->value;
-        removeNode(tree, minimum);
+        TreeNode* minimumNodo = minimum(node->right);
+        node->key = minimumNodo->key;
+        node->value = minimumNodo->value;
+        removeNode(tree, minimumNodo);
         }
     }
 }

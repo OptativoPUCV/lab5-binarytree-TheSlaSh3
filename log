@@ -164,3 +164,26 @@ treemap.c:132:1: error: expected identifier or ‘(’ before ‘}’ token
       | ^
 Compilation failed
 b24a644
+Sat 11 May 2024 10:34:04 PM UTC: 
+ treemap.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:127:13: error: ‘TreeNode’ has no member named ‘key’
+  127 |         node->key = minimumNodo->key;
+      |             ^~
+treemap.c:127:32: error: ‘TreeNode’ has no member named ‘key’
+  127 |         node->key = minimumNodo->key;
+      |                                ^~
+treemap.c:128:13: error: ‘TreeNode’ has no member named ‘value’
+  128 |         node->value = minimumNodo->value;
+      |             ^~
+treemap.c:128:34: error: ‘TreeNode’ has no member named ‘value’
+  128 |         node->value = minimumNodo->value;
+      |                                  ^~
+treemap.c: At top level:
+treemap.c:132:1: error: expected identifier or ‘(’ before ‘}’ token
+  132 | }
+      | ^
+Compilation failed
+dd5d426
