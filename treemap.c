@@ -100,7 +100,36 @@ TreeNode * minimum(TreeNode * x){
 }
 
 /*5.- Implemente la función void removeNode(TreeMap * tree, TreeNode* node). Esta función elimina el nodo node del árbol tree. Recuerde que para eliminar un node existen 3 casos: Nodo sin hijos: Se anula el puntero del padre que apuntaba al nodo Nodo con un hijo: El padre del nodo pasa a ser padre de su hijo Nodo con dos hijos: Descienda al hijo derecho y obtenga el menor nodo del subárbol (con la función minimum). Reemplace los datos (key,value) de node con los del nodo "minimum". Elimine el nodo minimum (para hacerlo puede usar la misma función removeNode)*/
-void removeNode(TreeMap * tree, TreeNode* node) {
+void removeNode(TreeMap* tree, TreeNode* node) {
+    // Caso 1: Nodo sin hijos
+    if (node->left == NULL && node->right == NULL) {
+        if (node->parent->left == node) {
+            node->parent->left = NULL;
+        } else {
+            node->parent->right = NULL;
+        }
+        free(node);
+        return;
+    }
+
+    // Caso 2: Nodo con un hijo
+    if (node->left == NULL || node->right == NULL) {
+        TreeNode* child = (node->left != NULL) ? node->left : node->right;
+        if (node->parent->left == node) {
+            node->parent->left = child;
+        } else {
+            node->parent->right = child;
+        }
+        child->parent = node->parent;
+        free(node);
+        return;
+    }
+
+    // Caso 3: Nodo con dos hijos
+    TreeNode* minNode = minimum(node->right);
+    node->pair->key = minNode->pair->key;
+    node->pair->value = minNode->pair->value;
+    removeNode(tree, minNode);
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
