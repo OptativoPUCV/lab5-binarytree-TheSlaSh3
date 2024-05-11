@@ -106,3 +106,32 @@ Sat 11 May 2024 10:27:20 PM UTC:
  1 file changed, 7 insertions(+)
  tests:  0|0
 3596fc9
+Sat 11 May 2024 10:29:40 PM UTC: 
+ treemap.c | 90 +++++++++++++--------------------------------------------------
+ 1 file changed, 18 insertions(+), 72 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:127:29: error: called object ‘minimum’ is not a function or function pointer
+  127 |         TreeNode* minimum = minimum(node->right);
+      |                             ^~~~~~~
+treemap.c:127:19: note: declared here
+  127 |         TreeNode* minimum = minimum(node->right);
+      |                   ^~~~~~~
+treemap.c:128:13: error: ‘TreeNode’ has no member named ‘key’
+  128 |         node->key = minimum->key;
+      |             ^~
+treemap.c:128:28: error: ‘TreeNode’ has no member named ‘key’
+  128 |         node->key = minimum->key;
+      |                            ^~
+treemap.c:129:13: error: ‘TreeNode’ has no member named ‘value’
+  129 |         node->value = minimum->value;
+      |             ^~
+treemap.c:129:30: error: ‘TreeNode’ has no member named ‘value’
+  129 |         node->value = minimum->value;
+      |                              ^~
+treemap.c: At top level:
+treemap.c:133:1: error: expected identifier or ‘(’ before ‘}’ token
+  133 | }
+      | ^
+Compilation failed
+af3dc91
