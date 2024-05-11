@@ -135,3 +135,32 @@ treemap.c:133:1: error: expected identifier or ‘(’ before ‘}’ token
       | ^
 Compilation failed
 af3dc91
+Sat 11 May 2024 10:32:53 PM UTC: 
+ treemap.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:126:29: error: called object ‘minimum’ is not a function or function pointer
+  126 |         TreeNode* minimum = minimum(node->right);
+      |                             ^~~~~~~
+treemap.c:126:19: note: declared here
+  126 |         TreeNode* minimum = minimum(node->right);
+      |                   ^~~~~~~
+treemap.c:127:13: error: ‘TreeNode’ has no member named ‘key’
+  127 |         node->key = minimum->key;
+      |             ^~
+treemap.c:127:28: error: ‘TreeNode’ has no member named ‘key’
+  127 |         node->key = minimum->key;
+      |                            ^~
+treemap.c:128:13: error: ‘TreeNode’ has no member named ‘value’
+  128 |         node->value = minimum->value;
+      |             ^~
+treemap.c:128:30: error: ‘TreeNode’ has no member named ‘value’
+  128 |         node->value = minimum->value;
+      |                              ^~
+treemap.c: At top level:
+treemap.c:132:1: error: expected identifier or ‘(’ before ‘}’ token
+  132 | }
+      | ^
+Compilation failed
+b24a644
