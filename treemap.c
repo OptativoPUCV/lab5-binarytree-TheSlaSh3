@@ -173,6 +173,36 @@ Pair * firstTreeMap(TreeMap * tree) {
     }
 
 
-Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+Pair* nextTreeMap(TreeMap* tree) {
+    if (tree->current == NULL) {
+        return NULL;
+    }
+
+    TreeNode* node = tree->current;
+
+    // Si hay un nodo derecho, el siguiente nodo será el más a la izquierda de ese subárbol derecho
+    if (node->right != NULL) {
+        node = node->right;
+        while (node->left != NULL) {
+            node = node->left;
+        }
+        tree->current = node;
+        return node->pair;
+    }
+
+    // Si no hay un nodo derecho, el siguiente nodo será el primer ancestro que sea un hijo izquierdo
+    TreeNode* parent = node->parent;
+    while (parent != NULL && parent->right == node) {
+        node = parent;
+        parent = parent->parent;
+    }
+
+    // Si no hay tal ancestro, hemos llegado al final del árbol
+    if (parent == NULL) {
+        tree->current = NULL;
+        return NULL;
+    }
+
+    tree->current = parent;
+    return parent->pair;
 }
